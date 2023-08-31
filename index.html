@@ -24,20 +24,21 @@
               <a class="btn bg-gray  text-sm lg:text-xl" id="sort-btn">Sort by Views</a>
             </div>
             <div class="">
-                <button class="btn bg-[#FF1F3D] text-white font-bold" id="blog">BLOG</button>
+                <button class="btn bg-[#FF1F3D] text-white font-bold" id="blog" onclick="blog()">BLOG</button>
             </div>
           </div>
           <div class="w-full h-[1px] bg-[#FF1F3D]"></div>
     </header>
     <main>
         <div  class="w-full">
-            <div class="grid grid-cols-2 md:flex lg:flex items-center justify-center my-10 gap-7"id="tab-container">   
+            <div class="grid gap-7 grid-cols-2 md:flex lg:flex items-center justify-center my-10 "id="tab-container">   
               </div>
         </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4" id="card-container">
+        <div class="w-[90%] mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8" id="card-container">
     
           </div>
     </main>
+    <script src="./blog.js"></script>
 
     <script src="./index.js"></script>
 </body>

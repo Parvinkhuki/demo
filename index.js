@@ -22,22 +22,62 @@ const tabHendler=data=>{
     });
 }
 const handleVideo=async(id)=>{
-   try {
+    try {
     const res =await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`)
     const categoryId =await res.json()
    const categoryInfo=categoryId.data
    console.log(categoryInfo);
-   categoryInfo.forEach(info => {
-    console.log(info);
-   });
+   cardHandelar(categoryInfo)
    
-   }
+    }
     catch (err) {
-        const body=document.getElementById("body")
-        const mess=document.createElement("div")
-        mess.classList="text-bold text-center item-center"
-        mess.innerHTML=`data not found!!!`
-        body.appendChild(mess) }
+         const body=document.getElementById("body")
+         const mess=document.createElement("div")
+         mess.classList="text-bold text-center item-center"
+         mess.innerHTML=`data not found!!!`
+         body.appendChild(mess) }
 }
-   
+  const cardHandelar =categoryInfo=>{
+    const cardDiv=document.getElementById("card-container")
+    cardDiv.textContent='';
+ if (categoryInfo.length!==0) {  categoryInfo.forEach(info => {
+  console.log(info); 
+  const div=document.createElement("div")
+  
+  div.classList="card bg-gray shadow-2xl "
+  div.innerHTML=`  <figure class="px-10 pt-10 mx-auto">
+  <img class="w-full h-56" src='${info.thumbnail
+
+  }' alt="videos not found" />
+</figure>
+<div class="card-body ">
+ <div class="flex justify-start
+  gap-5 "> 
+ <img class="w-[50px] h-[50px] rounded-full" src='${info.authors[0].profile_picture}'>
+ <h2 class="font-bold text-2xl">${info.title}</h2>
+ </div>
+  <div class="flex justify-start
+  gap-5 "><h3 class="font-bold text-xl" >${info.authors[0].profile_name}</h3>
+ <div>
+${info.authors[0]?.verified}
+  </div>
+</div>
+<p><span>${info.others.views}<span> views </p>
+`
+cardDiv.appendChild(div)
+
+ });
+  
+ } else {
+  const body=document.getElementById("body")
+  const mess=document.createElement("div")
+  mess.classList="text-bold text-center my-40"
+  mess.innerHTML=`<img class="flex m-auto justify-center item-center" src="./icon.png">
+  <h2 class="text-5xl font-bold">Oops!! Sorry, There is no <br> content here</h2>`
+  body.appendChild(mess) 
+ }
+  
+  }
+
 dataHandler()
+handleVideo("1000")
