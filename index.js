@@ -83,7 +83,7 @@ cardDiv.appendChild(div)
   const body=document.getElementById("body")
   const mess=document.createElement("div")
   mess.classList="text-bold text-center my-40"
-  mess.innerHTML=`<img class="flex m-auto justify-center item-center" src='./icon.png'>
+  mess.innerHTML=`<img class="flex m-auto justify-center item-center" src="./icon.png">
   <h2 class="text-5xl font-bold">Oops!! Sorry, There is no <br> content here</h2>`
   body.appendChild(mess) 
  }
