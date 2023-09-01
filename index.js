@@ -39,6 +39,7 @@ const handleVideo=async(id)=>{
 }
   const cardHandelar =categoryInfo=>{
     const cardDiv=document.getElementById("card-container")
+    cardDiv.classList="w-[90%] mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8"
     cardDiv.textContent='';
  if (categoryInfo.length!==0) {  categoryInfo.forEach(info => {
   console.log(info); 
@@ -81,8 +82,9 @@ cardDiv.appendChild(div)
   
  } else {
   const body=document.getElementById("body")
+  
   const mess=document.createElement("div")
-  mess.classList="text-bold text-center my-40"
+  mess.classList="text-bold text-center my-40 mx-auto lg:col-span-4 md:col-span-4 "
   mess.innerHTML=`<img class="flex m-auto justify-center item-center" src="./icon.png">
   <h2 class="text-5xl font-bold">Oops!! Sorry, There is no <br> content here</h2>`
   body.appendChild(mess) 
