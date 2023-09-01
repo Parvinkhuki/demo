@@ -64,7 +64,7 @@ const handleVideo=async(id)=>{
   gap-5 ">
   <h3 class=" mt-3 text-xl" >${info.authors[0].profile_name}</h3>
  <div  class=" mt-2" >
-${info.authors[0]?.verified?'<img src="./fi.png">':""}
+${info.authors[0]?.verified?"<img src='./fi.png'>":""}
  
   </div>
 </div>
