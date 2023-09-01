@@ -39,7 +39,7 @@ const handleVideo=async(id)=>{
 }
   const cardHandelar =categoryInfo=>{
     const cardDiv=document.getElementById("card-container")
-    cardDiv.classList="w-[90%] mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+   
     cardDiv.textContent='';
  if (categoryInfo.length!==0) {  categoryInfo.forEach(info => {
   console.log(info); 
