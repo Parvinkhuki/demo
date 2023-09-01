@@ -42,6 +42,8 @@ const handleVideo=async(id)=>{
     cardDiv.textContent='';
  if (categoryInfo.length!==0) {  categoryInfo.forEach(info => {
   console.log(info); 
+  secToHrs (`${info.others.posted_date
+  }`)
   const div=document.createElement("div")
   
   div.classList="card bg-gray shadow-2xl "
@@ -50,21 +52,30 @@ const handleVideo=async(id)=>{
 
   }' alt="videos not found" />
 </figure>
+<p></p>
 <div class="card-body ">
  <div class="flex justify-start
   gap-5 "> 
  <img class="w-[50px] h-[50px] rounded-full" src='${info.authors[0].profile_picture}'>
- <h2 class="font-bold text-2xl">${info.title}</h2>
- </div>
-  <div class="flex justify-start
-  gap-5 "><h3 class="font-bold text-xl" >${info.authors[0].profile_name}</h3>
  <div>
+
+ <h2 class="font-bold text-2xl">${info.title}</h2>
+ <div class="flex justify-start
+  gap-5 ">
+  <h3 class=" mt-3 text-xl" >${info.authors[0].profile_name}</h3>
+ <div  class=" mt-3" >
 ${info.authors[0]?.verified}
+ 
   </div>
 </div>
-<p><span>${info.others.views}<span> views </p>
-`
+<p>
+<span>${info.others.views}<span> views
+ </p>
+</div>
+ </div>
+ `
 cardDiv.appendChild(div)
+
 
  });
   
@@ -72,12 +83,23 @@ cardDiv.appendChild(div)
   const body=document.getElementById("body")
   const mess=document.createElement("div")
   mess.classList="text-bold text-center my-40"
-  mess.innerHTML=`<img class="flex m-auto justify-center item-center" src="./icon.png">
+  mess.innerHTML=`<img class="flex m-auto justify-center item-center" src='./icon.png'>
   <h2 class="text-5xl font-bold">Oops!! Sorry, There is no <br> content here</h2>`
   body.appendChild(mess) 
  }
   
   }
+
+  const secToHrs=(sec)=>{
+    const secs=parseInt(sec)
+    const hours =Math.floor (secs/3600);
+  const leftSecond =Math.floor (secs % 3600);;
+  const min =Math.floor (leftSecond/3600);
+  
+  }
+  
+
+
 
 dataHandler()
 handleVideo("1000")
