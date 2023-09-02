@@ -45,7 +45,7 @@ console.log(categoryInfo);
     const cardDiv=document.getElementById("card-container")
     const views=categoryInfo
     cardDiv.textContent='';
-    displayData(views)
+    sorting(views)
  if (categoryInfo.length!==0) {  categoryInfo.forEach(info => { 
   const div=document.createElement("div") 
   div.classList="card bg-gray shadow-2xl "
@@ -105,24 +105,18 @@ cardDiv.appendChild(div)
   
   }
    let newView=[]
-    const displayData=(views)=>{
-       newView=[]
-      views.forEach(info => { 
-      newView.push(parseInt(info.others.views.slice(0,3)))
-       })
-       console.log(newView)
-       newView.sort(function(a,b) {
-        return b-a;
-       })
+  const sorting=(views)=>{
+    console.log(views)
+    newView=[]
+    views.forEach(info => { 
+    newView.push(parseInt(info.others.views.slice(0,3)))
+     })
+     console.log(newView)
+     newView.sort(function(a,b) {
+      return b-a;
+     })
 
     }
-   
-
-  const sorting=(sort)=>{
-  displayData(sort)
-   }
-
-
    handleVideo()
 dataHandler()
 handleVideo("1000")
