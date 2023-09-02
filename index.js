@@ -30,7 +30,7 @@ const handleVideo=async(id)=>{
    console.log(categoryInfo);
    cardHandelar(categoryInfo)
   return categoryInfo
-   
+
     }
 
     catch (err) {
