@@ -21,15 +21,18 @@ const tabHendler=data=>{
         tabContainer.appendChild(tab)
     });
 }
+let categoryInfo;
 const handleVideo=async(id)=>{
     try {
     const res =await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`)
     const categoryId =await res.json()
-   const categoryInfo=categoryId.data
+   categoryInfo=categoryId.data
    console.log(categoryInfo);
    cardHandelar(categoryInfo)
+  return categoryInfo
    
     }
+
     catch (err) {
          const body=document.getElementById("body")
          const mess=document.createElement("div")
@@ -37,10 +40,12 @@ const handleVideo=async(id)=>{
          mess.innerHTML=`data not found!!!`
          body.appendChild(mess) }
 }
+console.log(categoryInfo);
   const cardHandelar =categoryInfo=>{
     const cardDiv=document.getElementById("card-container")
-    const views=categoryInfo;
+    const views=categoryInfo
     cardDiv.textContent='';
+    displayData(views)
  if (categoryInfo.length!==0) {  categoryInfo.forEach(info => { 
   const div=document.createElement("div") 
   div.classList="card bg-gray shadow-2xl "
@@ -72,21 +77,11 @@ ${info.authors[0]?.verified?"<img src='./fi.png'>":""}
  </div>
  `
 cardDiv.appendChild(div)
- });
-  sort=()=>{
-    const views=categoryInfo
-    console.log(views)
-    views.forEach(info => {
-    //   const view=[]
-     const data=info.others.views
-    //  ;
-      const viewData=data.slice(0, 3)
-        const viewFloat=parseFloat(viewData)
+ 
 
-        console.log(viewFloat)
 
-    });
-  }
+
+});
 
 
 
@@ -109,9 +104,28 @@ cardDiv.appendChild(div)
   const min =Math.floor (leftSecond/3600);
   
   }
-  
+   let newView=[]
+    const displayData=(views)=>{
+       newView=[]
+      views.forEach(info => { 
+      newView.push(parseInt(info.others.views.slice(0,3)))
+       })
+       console.log(newView)
+       newView.sort(function(a,b) {
+        return b-a;
+       })
+
+    }
+   
+
+  const sorting=(sort)=>{
+  displayData(sort)
+   }
 
 
-
+   handleVideo()
 dataHandler()
 handleVideo("1000")
+
+
+console.log(categoryInfo);
