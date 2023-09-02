@@ -39,14 +39,10 @@ const handleVideo=async(id)=>{
 }
   const cardHandelar =categoryInfo=>{
     const cardDiv=document.getElementById("card-container")
-   
+    const views=categoryInfo;
     cardDiv.textContent='';
- if (categoryInfo.length!==0) {  categoryInfo.forEach(info => {
-  console.log(info); 
-  secToHrs (`${info.others.posted_date
-  }`)
-  const div=document.createElement("div")
-  
+ if (categoryInfo.length!==0) {  categoryInfo.forEach(info => { 
+  const div=document.createElement("div") 
   div.classList="card bg-gray shadow-2xl "
   div.innerHTML=`  <figure class="px-10 pt-10 mx-auto">
   <img class="w-full h-56" src='${info.thumbnail
@@ -76,12 +72,27 @@ ${info.authors[0]?.verified?"<img src='./fi.png'>":""}
  </div>
  `
 cardDiv.appendChild(div)
-
-
  });
+  sort=()=>{
+    const views=categoryInfo
+    views.forEach(info => {
+      
   
+      const view=[]
+      const data=view.push(info.others.views)
+      console.log(view);
+      // const viewData=data.slice(0, 3)
+      // const viewFloat=parseFloat(viewData)
+
+      // return viewFloat
+
+    });
+  }
+
+
+
  } else {
-  const body=document.getElementById("body")
+  const body=document.getElementById("card-container")
   
   const mess=document.createElement("div")
   mess.classList="text-bold text-center my-40 mx-auto lg:col-span-4 md:col-span-4 "
