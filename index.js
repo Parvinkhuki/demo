@@ -75,16 +75,15 @@ cardDiv.appendChild(div)
  });
   sort=()=>{
     const views=categoryInfo
+    console.log(views)
     views.forEach(info => {
-      
-  
-      const view=[]
-      const data=view.push(info.others.views)
-      console.log(view);
-      // const viewData=data.slice(0, 3)
-      // const viewFloat=parseFloat(viewData)
+    //   const view=[]
+     const data=info.others.views
+    //  ;
+      const viewData=data.slice(0, 3)
+        const viewFloat=parseFloat(viewData)
 
-      // return viewFloat
+        console.log(viewFloat)
 
     });
   }
