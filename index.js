@@ -123,9 +123,9 @@ cardDiv.appendChild(div)
    }
 
 
-   handleVideo()
+  
 dataHandler()
 handleVideo("1000")
-
+handleVideo()
 
 console.log(categoryInfo);
